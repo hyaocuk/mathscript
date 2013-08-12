@@ -24,6 +24,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-unsigned int __gcd (unsigned int number1, unsigned int number2);
+unsigned int __gcd (unsigned int, unsigned int);
 
 #endif
