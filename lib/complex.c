@@ -20,6 +20,7 @@
 
 #include"complex.h"
 
+/* list of operations on complex numbers */
 complex_number
 *complex_number_conjugate ( complex_number *number )
 {
@@ -58,7 +59,8 @@ complex_number
 {
 	complex_number *result;
 
-	/* TODO implemention */
+	result->real = a * c - b * d;
+	result->image = a * d + b * c;
 
 	return result;
 }
@@ -68,7 +70,8 @@ complex_number
 {
 	complex_number *result;
 
-	/* TODO implemention */
+	result->real = ( a * c + b * d ) / ( c * c + d * d );
+	result->image = ( b * c - a * d ) / ( c * c + d * d );
 
 	return result;
 }
