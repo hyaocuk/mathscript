@@ -25,12 +25,14 @@
 #include<math.h>
 #include<stdlib.h>
 
-typedef struct __complex_number
+typedef struct
+__complex_number
 {
 	double real;
 	double image;
 } complex_number;
 
+/* list of operations on complex numbers */
 complex_number
 *complex_number_conjugate( complex_number * );
 
