@@ -68,7 +68,7 @@ roots_quadratic_equation *solve_quadratic_equation ( double a, double b, double 
 	if ( discriminant ( a, b, c ) > 0 )
 	{
 		roots->root1 = (( -1 * b ) + quadratic_equation_front ( a, b, c )) / ( 2 * a );
-		roots->root2 = (( -1 * b ) - quadratic_equation_front ( a, b, c )) / ( 2 * a );;
+		roots->root2 = (( -1 * b ) - quadratic_equation_front ( a, b, c )) / ( 2 * a );
 		return roots;
 	}
 	else if ( discriminant ( a, b, c ) == 0 )
