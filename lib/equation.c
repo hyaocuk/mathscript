@@ -35,27 +35,33 @@ discriminant ( double a, double b, double c )
 double
 quadratic_equation_front ( double a, double b, double c )
 {
-	return sqrt ( -1 * discriminant ( a, b, c ) );
+	return sqrt (  discriminant ( a, b, c ) );
 }
 
+/*  */
+#if NO_COMPLEX == 1
+
 /* return the final roots */
-roots_quadratic_equation *solve_quadratic_equation ( double a, double b, double c )
+roots_quadratic_equation
+*solve_quadratic_equation ( double a, double b, double c )
 {
 	
 	roots_quadratic_equation *roots;
 
-	//*roots = malloc ( sizeof ( roots_quadratic_equation ) );
+	// roots = malloc ( sizeof ( roots_quadratic_equation ) );
 
 	if ( discriminant ( a, b, c ) > 0 )
 	{
 		roots->root1 = ( -1 * b ) + quadratic_equation_front ( a, b, c );
 		roots->root2 = ( -1 * b ) - quadratic_equation_front ( a, b, c );
+
 		return roots;
 	}
 	else if ( discriminant ( a, b, c ) == 0 )
 	{ 
 		roots->root1 = -1 * b / ( 2 * a );
 		roots->root2 = roots->root1;
+
 		return roots;
 	}
 	else if ( discriminant ( a, b, c ) < 0)
@@ -63,3 +69,47 @@ roots_quadratic_equation *solve_quadratic_equation ( double a, double b, double 
 		return NULL;
 	}
 }
+
+#elif NO_COMPLEX == 0
+
+/* return the final roots */
+roots_quadratic_equation
+*solve_quadratic_equation ( double a, double b, double c )
+{
+	
+	roots_quadratic_equation *roots;
+
+	// roots = malloc ( sizeof ( roots_quadratic_equation ) );
+
+	if ( discriminant ( a, b, c ) > 0 )
+	{
+		roots->root1->real = ( -1 * b ) + quadratic_equation_front ( a, b, c );
+		roots->root1->image = 0;
+		roots->root2->real = ( -1 * b ) - quadratic_equation_front ( a, b, c );
+		roots->root2->image = 0;
+
+		return roots;
+	}
+	else if ( discriminant ( a, b, c ) == 0 )
+	{ 
+		roots->root1->real = -1 * b / ( 2 * a );
+		roots->root1->image = 0;
+		roots->root2->real = roots->root1->real;
+		roots->root2->image = 0
+
+		return roots;
+	}
+	else if ( discriminant ( a, b, c ) < 0)
+	{
+		roots->root1->real = -1 * b / ( 2 * a );
+		roots->root1->image = sqrt ( -1 * quadratic_equation_front( a, b, c ) ) / ( 2 * a );
+		roots->root2->real = roots->root1->real;
+		roots->root2->image = -1 * roots->root1->image;
+
+		return roots;
+	}
+}
+
+#endif /* NO_COMPLEX */
+
+
