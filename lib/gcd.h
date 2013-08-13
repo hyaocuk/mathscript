@@ -26,4 +26,4 @@
 
 unsigned int __gcd (unsigned int, unsigned int);
 
-#endif
+#endif /* _GCD_H */
