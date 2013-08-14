@@ -1,5 +1,5 @@
 /*
- * equation.h - declaration for equation.c
+ * equation_test.h - declaration for equation.c
  *     
  * Copyright (C) 2013  Terence Ng
  *
