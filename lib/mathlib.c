@@ -24,7 +24,7 @@
 unsigned int
 factoring ( double int integer_number )
 {
-	int result;
+	unsigned int result;
 	result = 1;
 
 	while (interger_number > 0)
