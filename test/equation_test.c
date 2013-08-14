@@ -1,5 +1,5 @@
 /*
- * equation.c - testcase for equation in lib
+ * equation_test.c - testcase for equation in lib
  *     
  * Copyright (C) 2013  Terence Ng
  *
